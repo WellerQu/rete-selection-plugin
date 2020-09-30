@@ -1,22 +1,7 @@
 {
-  "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "strict": true,
-    "jsx": "preserve",
-    "importHelpers": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "isolatedModules": true,
-    "sourceMap": true,
-    "baseUrl": ".",
-    "removeComments": true
-  },
   "extends": "./node_modules/rete-cli/tsconfig.json",
+  "compilerOptions": {
+    "target": "es5",
+  },
   "include": ["src"]
 }

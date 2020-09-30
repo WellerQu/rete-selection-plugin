@@ -9,7 +9,11 @@
     "build:dev": "rete --build rete.config.js --watch",
     "prepublishOnly": "npm run build",
     "prebuild": "npm run lint",
-    "lint": "tsc && eslint src"
+    "lint": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:WellerQu/rete-selection-plugin.git"
   },
   "author": "nix",
   "license": "ISC",
