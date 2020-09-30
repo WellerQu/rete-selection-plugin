@@ -1,5 +1,7 @@
 # rete-selection-plugin
 
+![CI](https://github.com/WellerQu/rete-selection-plugin/workflows/CI/badge.svg?branch=master)
+
 select more nodes at once
 
 ![Capture](https://github.com/WellerQu/rete-selection-plugin/blob/master/capture.gif?raw=true)
