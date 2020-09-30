@@ -2,6 +2,8 @@
 
 select more nodes at once
 
+![Capture](https://github.com/WellerQu/rete-selection-plugin/blob/master/capture.gif?raw=true)
+
 ## Usage
 
 ### Install
