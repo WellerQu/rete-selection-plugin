@@ -1,6 +1,6 @@
 {
   "name": "rete-selection-plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "select more nodes at once",
   "main": "build/rete-selection-plugin.common.js",
   "module": "build/rete-selection-plugin.esm.js",
