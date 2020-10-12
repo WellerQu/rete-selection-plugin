@@ -29,7 +29,7 @@ export interface Size {
 
 const MOUSE_LEFT_BUTTON = 0
 
-function drawSelectionArea (area: HTMLDivElement, position: Position, size: Size) {
+function drawSelectionArea(area: HTMLDivElement, position: Position, size: Size) {
   area.style.left = `${position.x}px`
   area.style.top = `${position.y}px`
   area.style.width = `${size.width}px`
@@ -37,7 +37,7 @@ function drawSelectionArea (area: HTMLDivElement, position: Position, size: Size
   area.style.opacity = '0.2'
 }
 
-function cleanSelectionArea (area: HTMLDivElement) {
+function cleanSelectionArea(area: HTMLDivElement) {
   area.style.left = '0px'
   area.style.top = '0px'
   area.style.width = '0px'
@@ -45,7 +45,7 @@ function cleanSelectionArea (area: HTMLDivElement) {
   area.style.opacity = '0'
 }
 
-function applyTransform (translateX: number, translateY: number, scale: number, position: Position): Position {
+function applyTransform(translateX: number, translateY: number, scale: number, position: Position): Position {
   return {
     x: (position.x - translateX) / scale,
     y: (position.y - translateY) / scale
@@ -254,13 +254,17 @@ function install(editor: NodeEditor, params: Cfg) {
   })
 
   editor.on('keydown', (e) => {
-    accumulate = e.ctrlKey
-    selectionMode.innerText = (cfg.mode ?? [])[1] ?? '多选模式'
+    if (e.ctrlKey) {
+      accumulate = true
+      selectionMode.innerText = (cfg.mode ?? [])[1] ?? '多选模式'
+    }
   })
 
-  editor.on('keyup', (e) => {
-    accumulate = e.ctrlKey
-    selectionMode.innerText = (cfg.mode ?? [])[0] ?? '单选模式'
+  editor.on('keyup', () => {
+    if (accumulate) {
+      accumulate = false
+      selectionMode.innerText = (cfg.mode ?? [])[0] ?? '单选模式'
+    }
   })
 
   editor.on('translate', () => {
@@ -270,6 +274,6 @@ function install(editor: NodeEditor, params: Cfg) {
 }
 
 export default {
-    name: 'rete-selection-plugin',
-    install
+  name: 'rete-selection-plugin',
+  install
 }
