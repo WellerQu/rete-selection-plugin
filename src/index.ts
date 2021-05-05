@@ -134,8 +134,6 @@ function install(editor: NodeEditor, params: Cfg) {
 
   // #region 选择事件
   const handleMouseDown = (e: MouseEvent) => {
-    e.preventDefault()
-    e.stopPropagation()
 
     if (!cfg.enabled) {
       return
@@ -147,6 +145,9 @@ function install(editor: NodeEditor, params: Cfg) {
     if (!e.ctrlKey) {
       return
     }
+
+    e.preventDefault()
+    e.stopPropagation()
 
     pressing = true
 
