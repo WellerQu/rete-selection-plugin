@@ -194,8 +194,6 @@ function install(editor: NodeEditor, params: Cfg) {
   }
 
   const handleMouseMove = (e: MouseEvent) => {
-    e.preventDefault()
-    e.stopPropagation()
 
     if (!cfg.enabled) {
       return
@@ -209,6 +207,9 @@ function install(editor: NodeEditor, params: Cfg) {
     if (editor.selected.list.length > 0) {
       return
     }
+
+    e.preventDefault()
+    e.stopPropagation()
 
     selection[1] = { x: e.offsetX, y: e.offsetY }
 
