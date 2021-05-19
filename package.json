@@ -1,9 +1,9 @@
 {
-  "name": "rete-selection-plugin",
+  "name": "rete-drag-selection-plugin",
   "version": "0.1.1",
   "description": "select more nodes at once",
-  "main": "build/rete-selection-plugin.common.js",
-  "module": "build/rete-selection-plugin.esm.js",
+  "main": "build/rete-drag-selection-plugin.common.js",
+  "module": "build/rete-drag-selection-plugin.esm.js",
   "scripts": {
     "build": "rete --build rete.config.js",
     "build:dev": "rete --build rete.config.js --watch",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:WellerQu/rete-selection-plugin.git"
+    "url": "git@github.com:damiano-sca/rete-selection-plugin.git"
   },
   "author": "nix",
   "license": "GPL-3.0-or-later",
