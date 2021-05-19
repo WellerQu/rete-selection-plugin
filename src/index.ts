@@ -164,8 +164,8 @@ function install(editor: NodeEditor, params: Cfg) {
   }
 
   const handleMouseUp = (e: MouseEvent) => {
-    e.preventDefault()
-    e.stopPropagation()
+    //e.preventDefault()
+    //e.stopPropagation()
 
     const selectedNodes = getNodesFromSelectionArea()
 
