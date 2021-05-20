@@ -1,7 +1,8 @@
-# rete-selection-plugin
+# rete-drag-selection-plugin
 
+This is a fork of WellerQu/rete-selection-plugin
 
-select more nodes at once by pressing CTRL and dragging
+This plugin allows to select more nodes at once by pressing CTRL and dragging an area on the ReteJS editor.
 
 
 ## Usage
