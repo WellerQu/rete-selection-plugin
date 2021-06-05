@@ -57,16 +57,15 @@ function install(editor: NodeEditor, params: Cfg) {
 
   const cfg = params ?? {}
 
-  // #region 插件状态
+  // #region 
   let accumulate = false
   let pressing = false
   const selection: [Position, Position] = [{ x: 0, y: 0 }, { x: 0, y: 0 }]
   // #endregion
 
-  // 画布对象
   const canvas = editor.view.container.firstElementChild as HTMLDivElement
 
-  // #region 获取框选范围内节点
+  // #region 
   const getNodesFromSelectionArea = () => {
     if (!cfg.enabled) {
       return []
@@ -76,7 +75,6 @@ function install(editor: NodeEditor, params: Cfg) {
     const areaStart = applyTransform(translateX, translateY, scale, { ...selection[0] })
     const areaEnd = applyTransform(translateX, translateY, scale, { ...selection[1] })
 
-    // 调整点的顺序
     if (areaEnd.x < areaStart.x) {
       const num = areaStart.x
       areaStart.x = areaEnd.x
@@ -95,7 +93,7 @@ function install(editor: NodeEditor, params: Cfg) {
   }
   // #endregion
 
-  // #region 创建选区
+  // #region 
   const selectionArea = document.createElement('div')
   selectionArea.classList.add('selection-area')
   selectionArea.style.position = 'absolute'
@@ -110,7 +108,7 @@ function install(editor: NodeEditor, params: Cfg) {
   selectionMode.innerText = (cfg.mode ?? [])[0] ?? '单选模式'
   // #endregion
 
-  // #region 外观定制
+  // #region 
   {
     const className = cfg.selectionArea?.className
     if (className) {
@@ -132,10 +130,7 @@ function install(editor: NodeEditor, params: Cfg) {
   }
   // #endregion
 
-  // #region 选择事件
   const handleMouseDown = (e: MouseEvent) => {
-    e.preventDefault()
-    e.stopPropagation()
 
     if (!cfg.enabled) {
       return
@@ -148,29 +143,30 @@ function install(editor: NodeEditor, params: Cfg) {
       return
     }
 
+    e.preventDefault()
+    e.stopPropagation()
+
     pressing = true
 
-    // 屏蔽其它元素的鼠标事件
     canvas.style.pointerEvents = 'none'
     Array.from(canvas.querySelectorAll('path')).forEach(item => {
       (item as SVGElement).style.pointerEvents = 'none'
     })
 
-    // 初始化相关状态
     cleanSelectionArea(selectionArea)
     selection[0] = { x: e.offsetX, y: e.offsetY }
     selection[1] = { x: e.offsetX, y: e.offsetY }
   }
 
   const handleMouseUp = (e: MouseEvent) => {
-    e.preventDefault()
-    e.stopPropagation()
+
+    //e.preventDefault()
+    //e.stopPropagation()
 
     const selectedNodes = getNodesFromSelectionArea()
 
     pressing = false
 
-    // 恢复其它元素的鼠标事件
     canvas.style.pointerEvents = 'auto'
     Array.from(canvas.querySelectorAll('path')).forEach(item => {
       (item as SVGElement).style.pointerEvents = 'auto'
@@ -193,8 +189,6 @@ function install(editor: NodeEditor, params: Cfg) {
   }
 
   const handleMouseMove = (e: MouseEvent) => {
-    e.preventDefault()
-    e.stopPropagation()
 
     if (!cfg.enabled) {
       return
@@ -208,6 +202,9 @@ function install(editor: NodeEditor, params: Cfg) {
     if (editor.selected.list.length > 0) {
       return
     }
+
+    e.preventDefault()
+    e.stopPropagation()
 
     selection[1] = { x: e.offsetX, y: e.offsetY }
 
@@ -224,12 +221,11 @@ function install(editor: NodeEditor, params: Cfg) {
       position.y = selection[1].y
     }
 
-    // 未选中任节点的情况下才需要绘制框选范围
     drawSelectionArea(selectionArea, position, size)
   }
   // #endregion
 
-  // #region 初始化样式和事件
+  // #region 
   editor.view.container.style.position = 'relative'
   editor.view.container.appendChild(selectionArea)
   editor.view.container.appendChild(selectionMode)

@@ -1,9 +1,9 @@
 {
-  "name": "rete-selection-plugin",
-  "version": "0.1.1",
+  "name": "rete-drag-selection-plugin",
+  "version": "0.1.3",
   "description": "select more nodes at once",
-  "main": "build/rete-selection-plugin.common.js",
-  "module": "build/rete-selection-plugin.esm.js",
+  "main": "build/rete-drag-selection-plugin.common.js",
+  "module": "build/rete-drag-selection-plugin.esm.js",
   "scripts": {
     "build": "rete --build rete.config.js",
     "build:dev": "rete --build rete.config.js --watch",
@@ -14,9 +14,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:WellerQu/rete-selection-plugin.git"
+    "url": "git+ssh://git@github.com/damiano-sca/rete-selection-plugin.git"
   },
-  "author": "nix",
+  "author": "damiano_sca",
   "license": "GPL-3.0-or-later",
   "dependencies": {},
   "devDependencies": {
@@ -33,5 +33,15 @@
   "files": [
     "build/*",
     "src/*"
+  ],
+  "bugs": {
+    "url": "https://github.com/damiano-sca/rete-selection-plugin/issues"
+  },
+  "homepage": "https://github.com/damiano-sca/rete-selection-plugin#readme",
+  "keywords": [
+    "retejs",
+    "retejs-plugin",
+    "retejs-selection",
+    "multiselect"
   ]
 }

@@ -1,23 +1,22 @@
-# rete-selection-plugin
+# rete-drag-selection-plugin
 
-![CI](https://github.com/WellerQu/rete-selection-plugin/workflows/CI/badge.svg?branch=master)
+This is a fork of WellerQu/rete-selection-plugin
 
-select more nodes at once
+This plugin allows to select more nodes at once by pressing CTRL and dragging an area on the ReteJS editor.
 
-![Capture](https://github.com/WellerQu/rete-selection-plugin/blob/master/capture.gif?raw=true)
 
 ## Usage
 
 ### Install
 
 ```shell
-npm i rete-selection-plugin --save
+npm i rete-drag-selection-plugin --save
 ```
 
 ### Basic
 
 ```typescript
-import SelectionPlugin from 'rete-selection-plugin'
+import SelectionPlugin from 'rete-drag-selection-plugin'
 editor.use(SelectionPlugin, { enabled: true })
 ```
 
@@ -48,12 +47,11 @@ export interface Cfg {
   mode?: [string, string];
 }
 
-import SelectionPlugin from 'rete-selection-plugin'
+import SelectionPlugin from 'rete-drag-selection-plugin'
 editor.use(SelectionPlugin, {
   enabled: true,
   selectionMode: {
     className: 'text-weight-light custom-selection-pos'
   },
-  mode: ['单选模式 (按下 ctrl 进入[多选模式])', '多选模式 (释放 ctrl 进入[单选模式])']
 })
 ```

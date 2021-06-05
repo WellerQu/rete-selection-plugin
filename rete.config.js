@@ -2,7 +2,7 @@
 
 export default {
     input: 'src/index.ts',
-    name: 'ReteSelectionPlugin',
+    name: 'ReteDragSelectionPlugin',
     babelPresets: [
         require('@babel/preset-typescript')
     ],
